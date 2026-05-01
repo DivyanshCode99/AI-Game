@@ -1,0 +1,177 @@
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #02020e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Courier New', monospace;
+      overflow: hidden;
+    }
+
+    .layout {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .game-wrap {
+      position: relative;
+      flex-shrink: 0;
+      width: 400px;
+      height: 600px;
+    }
+
+    #game {
+      display: block;
+      border: 2px solid #00eeff;
+      box-shadow: 0 0 30px rgba(0,238,255,0.18), 0 0 60px rgba(0,238,255,0.08);
+    }
+
+    /* red flash overlay on hit */
+    #hitFlash {
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 0, 50, 0.52);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.12s ease-out;
+    }
+
+    /* start / game-over overlay buttons */
+    .game-btn {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 15px 52px;
+      font: bold 20px 'Courier New', monospace;
+      letter-spacing: 3px;
+      color: #00eeff;
+      background: rgba(0, 238, 255, 0.06);
+      border: 2px solid #00eeff;
+      border-radius: 4px;
+      box-shadow: 0 0 22px rgba(0,238,255,0.35), inset 0 0 14px rgba(0,238,255,0.04);
+      cursor: pointer;
+      z-index: 20;
+      transition: background 0.15s, box-shadow 0.15s, color 0.15s;
+    }
+    .game-btn:hover {
+      background: rgba(0, 238, 255, 0.18);
+      box-shadow: 0 0 42px rgba(0,238,255,0.7), inset 0 0 20px rgba(0,238,255,0.1);
+      color: #fff;
+    }
+    #startBtn    { bottom: 44px; }
+    #playAgainBtn { bottom: 130px; }
+
+    /* side panel */
+    .side {
+      width: 240px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    #webcamContainer {
+      width: 100%;
+      height: 240px;
+      background: #000;
+      border: 1px solid rgba(0,238,255,0.3);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    #webcamContainer canvas {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .pbox {
+      background: rgba(0,0,0,0.78);
+      border: 1px solid rgba(0,238,255,0.22);
+      border-radius: 5px;
+      padding: 10px;
+      color: #bbb;
+      font-size: 11px;
+    }
+
+    .pbox-title {
+      color: #00eeff;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+
+    #modelUrlInput {
+      width: 100%;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(0,238,255,0.22);
+      border-radius: 3px;
+      padding: 6px 8px;
+      color: #ddd;
+      font-size: 10px;
+      font-family: inherit;
+      margin-bottom: 6px;
+    }
+
+    #loadModelBtn {
+      width: 100%;
+      background: #b01238;
+      border: none;
+      border-radius: 3px;
+      padding: 7px;
+      color: #fff;
+      font-size: 11px;
+      font-weight: bold;
+      cursor: pointer;
+      font-family: inherit;
+      letter-spacing: 1px;
+      transition: background 0.2s;
+    }
+
+    #loadModelBtn:hover { background: #d91e4f; }
+
+    #predictionLabel {
+      color: #00eeff;
+      font-weight: bold;
+      margin-bottom: 6px;
+      font-size: 11px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 62px 1fr 28px;
+      align-items: center;
+      gap: 5px;
+      margin: 3px 0;
+      font-size: 10px;
+    }
+
+    .bar-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .bar-track {
+      height: 5px;
+      border-radius: 3px;
+      background: rgba(255,255,255,0.1);
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #00eeff, #00ff88);
+      transition: width 0.08s linear;
+    }
+
+    #detectionHint {
+      margin-top: 7px;
+      color: #ffaa00;
+      line-height: 1.4;
+      font-size: 10px;
+    }
