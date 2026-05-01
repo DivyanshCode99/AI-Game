@@ -30,7 +30,6 @@
       box-shadow: 0 0 30px rgba(0,238,255,0.18), 0 0 60px rgba(0,238,255,0.08);
     }
 
-    /* red flash overlay on hit */
     #hitFlash {
       position: absolute;
       inset: 0;
@@ -40,7 +39,6 @@
       transition: opacity 0.12s ease-out;
     }
 
-    /* start / game-over overlay buttons */
     .game-btn {
       position: absolute;
       left: 50%;
@@ -65,7 +63,6 @@
     #startBtn    { bottom: 44px; }
     #playAgainBtn { bottom: 130px; }
 
-    /* side panel */
     .side {
       width: 240px;
       display: flex;
@@ -174,4 +171,17 @@
       color: #ffaa00;
       line-height: 1.4;
       font-size: 10px;
+    }
+
+    #credits {
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: rgba(0, 238, 255, 0.38);
+      pointer-events: none;
+      z-index: 5;
+      text-transform: uppercase;
     }
